@@ -1,0 +1,20 @@
+{
+  "name": "shadar147/algorithms",
+  "authors": [
+    {
+      "name": "Vadim Lebedev",
+      "email": "shadar147@gmail.com"
+    }
+  ],
+  "require": {
+    "ext-readline": "*",
+    "ext-intl": "*",
+    "php": "^8.2"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+		"Shadar\\Algorithms\\": "./php"
+    }
+  }
+}

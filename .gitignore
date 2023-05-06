@@ -1,0 +1,7 @@
+.fleet/
+.idea/
+golang/
+vendor/
+
+go.mod
+main.go
