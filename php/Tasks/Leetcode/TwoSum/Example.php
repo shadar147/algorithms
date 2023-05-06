@@ -50,18 +50,14 @@ class Example extends AbstractExample
 
     protected function printTestCase(): void
     {
-        $nums = implode(', ', $this->testCase['nums']);
-
         echo 'Test case: ' . PHP_EOL .
-            "Nums: {$nums}" . PHP_EOL .
+            "Nums: {$this->defaultImplode($this->testCase['nums'])}" . PHP_EOL .
             "Target: {$this->testCase['target']}" . PHP_EOL;
     }
 
     protected function printResult(): void
     {
-        $res = implode(', ', $this->result);
-
-        echo "Result: {$res}" . PHP_EOL;
+        echo "Result: {$this->defaultImplode($this->result)}" . PHP_EOL;
     }
 
     protected function printError(): void
