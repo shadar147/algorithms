@@ -1,33 +1,26 @@
 <?php
 
-namespace Shadar\Algorithms\Tasks\Leetcode\TwoSum;
+namespace Shadar\Algorithms\Tasks\Leetcode\LongestSubstringWithoutRepeatingCharacters;
 
 use Shadar\Algorithms\Abstract\AbstractExample;
 use Shadar\Algorithms\Enums\Complexity;
+use Shadar\Algorithms\Structures\{LinkedList, ListNode};
 
 class Example extends AbstractExample
 {
-    protected int $num = 1;
-    protected string $title = 'Two Sum';
-    protected Complexity $complexity = Complexity::EASY;
+    protected int $num = 3;
+    protected string $title = 'Longest Substring Without Repeating Characters';
+    protected Complexity $complexity = Complexity::MEDIUM;
     protected array $testCases = [
-        [
-            'nums' => [2, 7, 11, 15],
-            'target' => 9
-        ],
-        [
-            'nums' => [3, 2, 4],
-            'target' => 6
-        ],
-        [
-            'nums' => [3, 3],
-            'target' => 6
-        ]
+        'abcabcbb',
+        'bbbbb',
+        'pwwkew',
+        ' '
     ];
 
     private int $key;
-    private array $testCase;
-    private array $result;
+    private string $testCase;
+    private int $result;
     private \Exception $error;
 
     public function handleExample(): void
@@ -39,7 +32,7 @@ class Example extends AbstractExample
             $this->testCase = $testCase;
             $this->printTestCase();
             try {
-                $this->result = $solution->twoSum($testCase['nums'], $testCase['target']);
+                $this->result = $solution->lengthOfLongestSubstring($testCase);
                 $this->printResult();
             } catch (\Exception $e) {
                 $this->error = $e;
@@ -52,13 +45,12 @@ class Example extends AbstractExample
     {
         echo 'Test case: ' . PHP_EOL .
             "Key: {$this->key}" . PHP_EOL .
-            "Nums: {$this->defaultImplode($this->testCase['nums'])}" . PHP_EOL .
-            "Target: {$this->testCase['target']}" . PHP_EOL;
+            "s: {$this->testCase}" . PHP_EOL;
     }
 
     protected function printResult(): void
     {
-        echo "Result: {$this->defaultImplode($this->result)}" . PHP_EOL;
+        echo "Result: {$this->result}" . PHP_EOL;
     }
 
     protected function printError(): void
