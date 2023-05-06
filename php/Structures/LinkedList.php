@@ -4,8 +4,20 @@ namespace Shadar\Algorithms\Structures;
 
 class LinkedList
 {
-    private ?ListNode $head;
-    private int $count = 0;
+    private ?ListNode $head = null;
+
+    public function __construct(array $struct = [])
+    {
+        if (!empty($struct)) {
+            foreach ($struct as $el) {
+                if (!is_int($el)) {
+                    throw new \Exception('Bad type for creating linked list');
+                }
+
+                $this->add($el);
+            }
+        }
+    }
 
     public function add(int $val): void
     {
@@ -22,5 +34,10 @@ class LinkedList
 
             $currentNode->next = $node;
         }
+    }
+
+    public function getHead(): ?ListNode
+    {
+        return $this->head;
     }
 }

@@ -33,4 +33,9 @@ abstract class AbstractExample
 	{
 		return $this->complexity;
 	}
+
+    protected function defaultImplode(array $arr): string
+    {
+        return implode(', ', $arr);
+    }
 }
