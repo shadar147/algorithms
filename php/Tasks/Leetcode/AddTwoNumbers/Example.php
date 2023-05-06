@@ -63,6 +63,7 @@ class Example extends AbstractExample
     protected function printTestCase(): void
     {
         echo 'Test case: ' . PHP_EOL .
+            "Key: {$this->key}" . PHP_EOL .
             "l1: {$this->defaultImplode($this->testCase['l1'])}" . PHP_EOL .
             "l2: {$this->defaultImplode($this->testCase['l2'])}" . PHP_EOL;
     }
